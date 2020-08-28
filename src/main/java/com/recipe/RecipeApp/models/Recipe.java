@@ -1,9 +1,8 @@
 package com.recipe.RecipeApp.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -12,16 +11,26 @@ public class Recipe {
     private String title;
     private String description;
 
-    @ManyToOne
-    private User user;
+    @ManyToMany
+    @JoinTable(name="user_recipe", joinColumns = @JoinColumn(name = "rid"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private Set<User> users;
 
     public Recipe() {
     }
 
-    public Recipe(String rid, String title, String description) {
+    public Recipe(String rid, String title, String description, Set<User> users) {
         this.rid = rid;
         this.title = title;
         this.description = description;
+        this.users = users;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     public String getRid() {
@@ -46,5 +55,28 @@ public class Recipe {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "rid='" + rid + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", users=" + users +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Recipe recipe = (Recipe) o;
+        return Objects.equals(rid, recipe.rid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rid);
     }
 }
