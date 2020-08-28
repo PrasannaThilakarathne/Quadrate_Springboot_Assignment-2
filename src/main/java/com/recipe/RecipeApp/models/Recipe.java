@@ -7,7 +7,7 @@ import java.util.Set;
 @Entity
 public class Recipe {
     @Id
-    private String rid;
+    private String id;
     private String title;
     private String description;
 
@@ -18,8 +18,8 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String rid, String title, String description, Set<User> users) {
-        this.rid = rid;
+    public Recipe(String id, String title, String description, Set<User> users) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.users = users;
@@ -34,11 +34,11 @@ public class Recipe {
     }
 
     public String getRid() {
-        return rid;
+        return id;
     }
 
     public void setRid(String rid) {
-        this.rid = rid;
+        this.id = rid;
     }
 
     public String getTitle() {
@@ -60,7 +60,7 @@ public class Recipe {
     @Override
     public String toString() {
         return "Recipe{" +
-                "rid='" + rid + '\'' +
+                "rid='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", users=" + users +
@@ -72,11 +72,11 @@ public class Recipe {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
-        return Objects.equals(rid, recipe.rid);
+        return Objects.equals(id, recipe.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rid);
+        return Objects.hash(id);
     }
 }

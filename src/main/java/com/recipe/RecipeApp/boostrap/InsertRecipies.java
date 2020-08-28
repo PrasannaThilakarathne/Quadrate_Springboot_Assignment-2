@@ -1,4 +1,4 @@
-package com.recipe.RecipeApp.controller;
+package com.recipe.RecipeApp.boostrap;
 
 import com.recipe.RecipeApp.models.Recipe;
 import com.recipe.RecipeApp.models.User;

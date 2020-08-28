@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+      <head>
+          <meta charset="UTF-8"/>
+          <title>RecipeApp</title>
+      </head>
+<body>
+<h1>Recipes</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="recipe:${recipes}">
+        <td th:text="${recipe.title}">abc</td>
+        <td th:text="${recipe.description}">how to make abc</td>
+    </tr>
+</table>
+</body>
+</html>
