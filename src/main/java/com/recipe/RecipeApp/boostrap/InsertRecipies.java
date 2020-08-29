@@ -24,14 +24,25 @@ public class InsertRecipies implements CommandLineRunner {
 
         Recipe recp1 = new Recipe();
         recp1.setRid("R01");
-        recp1.setTitle("Buriyani");
+        recp1.setTitle("Biryani");
         recp1.setDescription("Ingradians and steps.....");
 
+        Recipe recp2 = new Recipe();
+        recp2.setRid("R02");
+        recp2.setTitle("Gateau");
+        recp2.setDescription("Ingradians and steps.....");
+
         User user1 = new User();
-        user1.setF_name("Silva");
-        user1.setL_name("ljd");
+        user1.setF_name("Nevil");
+        user1.setL_name("Silva");
+
+        User user2 = new User();
+        user2.setF_name("Nisal");
+        user2.setL_name("Perera");
 
         recipeRepository.save(recp1);
         userRepository.save(user1);
+        recipeRepository.save(recp2);
+        userRepository.save(user2);
     }
 }
